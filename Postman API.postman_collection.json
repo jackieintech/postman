@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "4f8662f6-d96d-49ee-b208-fb104ad41f8f",
+		"name": "Postman API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21693233"
+	},
+	"item": [
+		{
+			"name": "Get Collections",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const jsonData = pm.response.json();",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Collections should have IDs\", function () {",
+							"    pm.expect(jsonData.collections[0].id).to.not.eql(undefined);",
+							"});",
+							"",
+							"console.log(jsonData.collections[0].id);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.getpostman.com/collections?apikey={{postmanKey}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"getpostman",
+						"com"
+					],
+					"path": [
+						"collections"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{postmanKey}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a Specific Collection",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.getpostman.com/collections/05290863-5e81-440a-8b06-003b07744593?apikey={{postmanKey}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"getpostman",
+						"com"
+					],
+					"path": [
+						"collections",
+						"05290863-5e81-440a-8b06-003b07744593"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{postmanKey}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Postman API",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.getpostman.com/collections/4f8662f6-d96d-49ee-b208-fb104ad41f8f?apikey={{postmanKey}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"getpostman",
+						"com"
+					],
+					"path": [
+						"collections",
+						"4f8662f6-d96d-49ee-b208-fb104ad41f8f"
+					],
+					"query": [
+						{
+							"key": "apikey",
+							"value": "{{postmanKey}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "key",
+				"value": "apikey",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "query",
+				"type": "string"
+			},
+			{
+				"key": "value",
+				"value": "PMAK-62cf1ebf4453cc1f38b5341b-2e0a96bbcb6e230deb68e5a095119dc280",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "postmanKey",
+			"value": "",
+			"type": "string",
+			"disabled": true
+		}
+	]
+}
